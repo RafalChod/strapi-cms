@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "homepage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "heroImageCollecion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "hero-image-collection.hero-image-collection"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

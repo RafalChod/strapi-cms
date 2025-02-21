@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_hero_image_collection_hero_image_collections",
+  "info": {
+    "displayName": "hero image collection",
+    "icon": "landscape",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bannerCollection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "hero-image-collection.hero-image"
+    }
+  }
+}
