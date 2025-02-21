@@ -1,19 +1,24 @@
 import { parse } from 'pg-connection-string';
-const config = parse(process.env.DATABASE_URL);
 
-export default ({ env }) => ({
-  connection: {
-    client: 'postgres',
+export default ({ env }) => {
+  const databaseUrl = env('DATABASE_URL');
+  const config = parse(databaseUrl);
+  const client = env('NODE_ENV', 'development') === 'production' ? 'postgres' : 'sqlite';
+
+  return {
     connection: {
-      host: config.host,
-      port: config.port,
-      database: config.database,
-      user: config.user,
-      password: config.password,
-      ssl: {
-        rejectUnauthorized: false
+      client,
+      connection: {
+        host: config.host,
+        port: config.port,
+        database: config.database,
+        user: config.user,
+        password: config.password,
+        ssl: {
+          rejectUnauthorized: false
+        },
       },
+      debug: false,
     },
-    debug: false,
-  },
-});
+  };
+};
